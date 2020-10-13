@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- user及对应的索引号 ，遍历数组-->
+            <li v-for="(user,index) in users">{{index}}-- {{user.name}}--{{user.age}}--{{user.gender}} </li>
+            <hr>
+            <!-- 遍历对象时，属性,键值，索引，v-for="value in object"  v-for="(value,key) in object" v-for="(value,key,index) in object"  -->
+            <!-- :key用于提示vue执行就地复用原则，key一般赋一个唯一的值，在遍历完后又增减集合元素时使用该语法会体现其意义 -->
+            <li v-for="(value,key,index)  in person" :key="index">{{key}}--{{value}}--{{index}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                users: [{
+                        name: "bob",
+                        "age": 13,
+                        "gender": "男"
+                    },
+                    {
+                        "name": "haha",
+                        "age": 15,
+                        "gender": "男"
+                    },
+                    {
+                        "name": "wawa",
+                        "age": 12,
+                        "gender": "女"
+                    }
+                ],
+                person: {
+                    "name": "jason",
+                    age: 55,
+                    "gender": "man"
+                }
+            },
+            methods: {
+                decrement() {
+                    this.num--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

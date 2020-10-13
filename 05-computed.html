@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>你的生日为:{{new Date(birthday).getFullYear()}}-{{new Date(birthday).getMonth()+1}}-{{new Date(birthday).getDay()}}
+        </h2>
+        <hr>
+        <h2>你的生日为：{{birth}}</h2>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                birthday: 1429032123201
+            },
+            // 计算属性computed主要应用在插值或者指令表达式复杂时
+            computed: {
+                birth() {
+                    const date = new Date(this.birthday);
+                    return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+                }
+            },
+            methods: {
+                name() {
+
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

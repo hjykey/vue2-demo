@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="message" type="text" />
+        <hr><br>
+        姓名：<input v-model="person.name" type="text" />
+        年龄：
+        <input v-model="person.age" type="text" />
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "黑马",
+                person: {
+                    "name": "黑马",
+                    "age": 13
+                }
+            },
+            watch: {
+                message(newValue, oldValue) {
+                    console.log('新值:' + newValue, '旧值:' + oldValue)
+                },
+                person: {
+                    //开启深度监控；监控对象属性的变化
+                    deep: true,
+                    handler(obj) {
+                        console.log('姓名:' + obj.name, '年龄:' + obj.age)
+                    }
+                }
+            },
+            //钩子函数，vue自带
+            created: {}
+        })
+    </script>
+</body>
+
+</html>

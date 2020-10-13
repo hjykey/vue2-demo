@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(user,index) in users" :key="index">{{index}}--{{user.name}}--{{user.age}}--{{user.gender}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                users: []
+            },
+            created() {
+                axios.get(
+                    "data.json").then((result) => {
+                    console.log(result);
+                    app.users = result.data;
+                }).catch((err) => {
+                    alert(err)
+                });
+                // //    预加载
+                // axios({
+                //     url: "/data.json",
+                //     method: "get"
+                // }).then((result) => {
+                //     console.log(result);
+                //     //将数据赋值到vue实例中的数据属性users
+                //     //不能使用this，因为this在Ajax回调函数中表示窗口而不是vue实例
+                //     app.users = result.data;
+                // }).catch((err) => {
+                //     alert(err)
+                // });
+            }
+        });
+    </script>
+</body>
+
+</html>

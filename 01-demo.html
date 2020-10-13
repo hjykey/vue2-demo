@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak&v-pre&v-once</title>
+    <script src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model双向绑定，数据改变相应的view也会变化，一般用于表单或者vue组件上，区别v-text和v-html -->
+        <!--  @click的另一种写法是v-on:click='' -->
+        <input type="text" v-model="num"><button @click="num++">自增</button><button @click="decrement">自减</button>
+        <hr>
+        <!-- v-cloak加载完成后显示 -->
+        <h2 v-cloak>{{name}},{{num}}</h2><br>
+        <!-- v-pre会显示其本身,no render -->
+        <h2 v-pre>{{name}}</h2><br>
+        <!-- v-once只渲染一次 -->
+        <h2 v-once>{{num}}</h2><br>
+        <input type="checkbox" value="java" v-model="language">java <br>
+        <input type="checkbox" value="C#" v-model="language">C# <br>
+        <input type="checkbox" value="python" v-model="language">python <br>
+        <h2 v-cloak>你选择了:{{language.join("|")}}</h2>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                name: "黑马",
+                num: 1,
+                language: []
+            },
+            methods: {
+                decrement() {
+                    this.num--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

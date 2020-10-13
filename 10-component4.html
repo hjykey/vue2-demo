@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>父组件num={{num}}</h2>
+        <!-- 引入组件 -->
+        <!-- 自定义两个事件plus和reduce -->
+        <counter @plus="numplus" @reduce="numreduce" :snum="num"></counter>
+    </div>
+    <script type="text/javascript">
+        //定义组件
+        const counter = {
+            template: "<div><button @click='incrnum'> +</button><button @click='decrnum'> -</button></div>",
+            // 用来接收父组件传给子组件的数据
+            props: ["snum"],
+            methods: {
+                incrnum() {
+                    //触发当前实例上的事件plus
+                    return this.$emit('plus')
+                    //this.$on('event', callback) 监听event事件后运行 callback； 
+                },
+                decrnum() {
+                    //emit触发reduce事件
+                    //参数1：事件名，参数2：传至父组件的参数值
+                    return this.$emit('reduce', 0)
+                }
+            },
+        };
+
+        var app = new Vue({
+            el: "#app",
+            //局部注册组件,在需要地方局部注册
+            components: {
+                counter: counter
+            },
+            data: {
+                num: 0
+            },
+            methods: {
+                numplus() {
+                    this.num++;
+                },
+                numreduce(number) {
+                    if (this.num <= 0) {
+                        this.num = number;
+                    } else
+                        this.num--;
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>
