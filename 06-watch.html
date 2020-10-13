@@ -22,14 +22,16 @@
             data: {
                 message: "黑马",
                 person: {
-                    "name": "黑马",
-                    "age": 13
+                    name: "黑马",
+                    age: 13
                 }
             },
             watch: {
+                //监控属性变化
                 message(newValue, oldValue) {
                     console.log('新值:' + newValue, '旧值:' + oldValue)
                 },
+                //监控对象使用
                 person: {
                     //开启深度监控；监控对象属性的变化
                     deep: true,
