@@ -17,6 +17,8 @@
         <input v-model="person.age" type="text" />
     </div>
     <script type="text/javascript">
+        // watch加载到构造器外部的写法，降低程序耦合度
+        // app.$watch('xxx',function(){})
         var app = new Vue({
             el: "#app",
             data: {

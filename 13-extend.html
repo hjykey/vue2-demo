@@ -15,6 +15,15 @@
     <hr>
     <author></author>
 
+    <h1>实例构造器里的Extends Option</h1>
+    <hr>
+    <div id="app">
+        <!-- {{message}} -->
+        ${message}
+        <p><button @click="add">add</button></p>
+        <p><button @click="addextend">addextend</button></p>
+    </div>
+
     <script type="text/javascript">
         var authorExtend = Vue.extend({
             template: "<p><a :href='authorUrl'>{{authorName}}</a></p>",
@@ -25,9 +34,34 @@
                 }
             }
         });
+        //挂载到自定义标签上去
+        //也挂载到HTML标签上的id或者class上，new authorExtend().$mount('#author');
         new authorExtend().$mount('author');
-        // 挂载到HTML标签上的id或者class上
-        // new authorExtend().$mount('#author');
+
+        var bbb = {
+            created: function () {
+                console.log("我是被扩展出来的");
+            },
+            methods: {
+                addextend: function () {
+                    console.log('我是被扩展出来的方法！');
+                }
+            }
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue!'
+            },
+            methods: {
+                add: function () {
+                    console.log('我是原生方法');
+                }
+            },
+            extends: bbb,
+            //修改插值双大括号{{}}为${}
+            delimiters: ['${', '}']
+        })
     </script>
 </body>
 

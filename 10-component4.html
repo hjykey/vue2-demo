@@ -14,10 +14,13 @@
         <!-- 引入组件 -->
         <!-- 自定义两个事件plus和reduce -->
         <counter @plus="numplus" @reduce="numreduce" :snum="num"></counter>
+        <!-- 在实际开发中经常需要把某个按钮封装成组件，然后反复使用，如何让组件调用构造器里的方法，而不是组件里的方法。就需要用到我们的.native修饰器了。 -->
+        <!-- <counter @click.native='numplus' @reduce='numreduce' :snum="num"></counter> -->
     </div>
     <script type="text/javascript">
         //定义组件
         const counter = {
+            // template: `<div><button> +</button><button @click='decrnum'> -</button></div>`,
             template: `<div><button @click='incrnum'> +</button><button @click='decrnum'> -</button></div>`,
             // 用来接收父组件传给子组件的数据
             props: ["snum"],
@@ -39,7 +42,8 @@
             el: "#app",
             //局部注册组件,在需要地方局部注册
             components: {
-                counter: counter
+
+                "counter": counter
             },
             data: {
                 num: 0

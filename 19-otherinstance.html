@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+    <title>Examples Method Demo</title>
+</head>
+
+<body>
+    <h1>Examples Method Demo</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+
+    </div>
+    <div>
+        <p><button onclick="destroy()">卸载</button></p>
+    </div>
+
+    <script type="text/javascript">
+        var jspang = Vue.extend({
+            template: `<p>{{message}}</p>`,
+            data: function () {
+                return {
+                    message: 'Hello ,I am JSPang'
+                }
+            }
+        })
+        var vm = new jspang().$mount("#app")
+
+        function destroy() {
+            // 卸载
+            vm.$destroy();
+        }
+        // 更新
+        vm.$forceUpdate()
+        // Vue构造器里的data值被修改完成后会调用这个方法，也相当于一个钩子函数
+        function tick() {
+            vm.message = "update message info ";
+            vm.$nextTick(function () {
+                console.log('message更新完后我被调用了');
+            })
+        }
+        // 构造器外部添加事件,第一个参数是调用时的事件名称，第二个参数是一个匿名方法
+        app.$on('reduce', function () {
+            console.log('执行了reduce()');
+            this.num--;
+        });
+        //外部调用内部事件
+        function reduce() {
+            app.$emit('reduce');
+        }
+        // 执行一次的事件
+        app.$once('reduceOnce', function () {
+            console.log('只执行一次的方法');
+            this.num--;
+            //关闭事件
+            function off() {
+                app.$off('reduce');
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -11,28 +11,61 @@
 
 <body>
     <div id="app">
-        <h2>你的生日为:{{new Date(birthday).getFullYear()}}-{{new Date(birthday).getMonth()+1}}-{{new Date(birthday).getDay()}}
+
+        <h2>传统方法：生日为:{{new Date(birthday).getFullYear()}}-{{new Date(birthday).getMonth()+1}}-{{new Date(birthday).getDay()}}
         </h2>
         <hr>
-        <h2>你的生日为：{{birth}}</h2>
+        <h2>生日为：{{birth}}</h2><br>
+        <ol>
+            <li v-for="item in reverseNews" :key="item.id">{{item.title}}--{{item.date}}</li>
+        </ol>
     </div>
     <script type="text/javascript">
+        //用于sort函数的sortby参数
+        function sortNumber(a, b) {
+            return a - b
+        }
         var app = new Vue({
             el: "#app",
             data: {
-                birthday: 1429032123201
+                birthday: 1429032123201,
+                items: [20, 23, 18, 65, 32, 19, 5, 56, 41],
+                newsList: [{
+                        title: '香港或就“装甲车被扣”事件追责 起诉涉事运输公司',
+                        date: '2017/3/10'
+                    },
+                    {
+                        title: '日本第二大准航母服役 外媒：针对中国潜艇',
+                        date: '2017/3/12'
+                    },
+                    {
+                        title: '中国北方将有明显雨雪降温天气 南方阴雨持续',
+                        date: '2017/3/13'
+                    },
+                    {
+                        title: '起底“最短命副市长”：不到40天落马，全家被查',
+                        date: '2017/3/23'
+                    },
+                ]
             },
             // 计算属性computed主要应用在插值或者指令表达式复杂时
             computed: {
+                //ES6,省略:function
                 birth() {
                     const date = new Date(this.birthday);
                     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+                },
+                //数组排序
+                sortItems: function () {
+                    return this.items.sort(sortNumber);
+                },
+                //数组反转
+                reverseNews: function () {
+                    return this.newsList.reverse();
                 }
             },
             methods: {
-                name() {
 
-                },
             },
         })
     </script>
