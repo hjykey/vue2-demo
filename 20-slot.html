@@ -12,14 +12,16 @@
     <h1>Slot content extend Demo</h1>
     <hr>
     <div id="app">
+        <!-- slot相当于定义要传递value的key -->
         <jspang>
-            <span slot="bolgUrl">{{jspangData.bolgUrl}}</span>
-            <span slot="netName">{{jspangData.netName}}</span>
-            <span slot="skill">{{jspangData.skill}}</span>
+            <span slot="bolgUrl" style="background-color: brown;">{{jspangData.bolgUrl}}</span>
+            <span slot="netName" style="background-color: crimson;">{{jspangData.netName}}</span>
+            <span slot="skill" style="background-color: cyan;">{{jspangData.skill}}</span>
         </jspang>
     </div>
 
     <template id="tmp">
+        <!-- slot相当于定义要传递value的key -->
         <div>
             <p>博客地址：<slot name="bolgUrl"></slot>
             </p>
@@ -27,7 +29,6 @@
             </p>
             <p>技术类型：<slot name="skill"></slot>
             </p>
-
         </div>
     </template>
 
