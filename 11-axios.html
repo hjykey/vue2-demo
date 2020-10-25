@@ -23,28 +23,28 @@
                 users: {}
             },
             mounted() {
-                // axios.get(
-                //     '/data.json').then((result) => {
-                //     console.log(result);
-                //     app.users = result.data;
-                // }).catch((err) => {
-                //     alert(err)
-                // });
+                axios.get(
+                    '/data.json').then((result) => {
+                    console.log(result);
+                    app.users = result.data;
+                }).catch((err) => {
+                    alert(err)
+                });
                 // //    一般推荐写法
-                axios.get('http://www.tuling123.com/openapi/api?key=20ff1803ff65429b809a310653c9daac', { //params参数必写 , 如果没有参数传{}也可以
-                        params: {
-                            info: "南宁天气"
-                        }
-                    })
-                    .then(function (res) {
-                        console.log(res);
-                        app.users = res.data;
-                        console.log(app.users)
+                // axios.get('http://www.tuling123.com/openapi/api?key=20ff1803ff65429b809a310653c9daac', { //params参数必写 , 如果没有参数传{}也可以
+                //         params: {
+                //             info: "南宁天气"
+                //         }
+                //     })
+                //     .then(function (res) {
+                //         console.log(res);
+                //         app.users = res.data;
+                //         console.log(app.users)
 
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    });
+                //     })
+                //     .catch(function (err) {
+                //         console.log(err);
+                //     });
                 // //
                 // axios({
                 //     url: '/data.json',
