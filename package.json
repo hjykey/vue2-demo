@@ -1,7 +1,7 @@
 {
   "name": "vue2-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://www.bilibili.com/video/BV1mt4y1U7yF?p=5",
   "main": "index.js",
   "dependencies": {
     "_follow-redirects@1.13.0@follow-redirects": "^1.13.0",
@@ -14,5 +14,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hjykey/vue2-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hjykey/vue2-demo/issues"
+  },
+  "homepage": "https://github.com/hjykey/vue2-demo#readme"
 }
