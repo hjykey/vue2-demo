@@ -3,22 +3,16 @@
   "version": "1.0.0",
   "description": "https://www.bilibili.com/video/BV1mt4y1U7yF?p=5",
   "main": "index.js",
-  "dependencies": {
-    "_follow-redirects@1.13.0@follow-redirects": "^1.13.0",
-    "_vue@2.6.12@vue": "^2.6.12",
-    "_axios@0.20.0@axios": "^0.20.0"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hjykey/vue2-demo.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/hjykey/vue2-demo/issues"
   },
