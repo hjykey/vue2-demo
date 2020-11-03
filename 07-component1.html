@@ -17,11 +17,12 @@
     <script type="text/javascript">
       //定义组件
       const counter = {
-        template: "<button @click='num++'> 你点击了{{num}}次 </button>",
+        template:
+          "<button @click='clicknum++'> 你点击了{{clicknum}}次 </button>",
         data() {
           //组件里的data必须是一个函数，保证组件重用的时候，对象是一份独立的拷贝
           return {
-            num: 0,
+            clicknum: 0,
           }
         },
       }
