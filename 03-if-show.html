@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <button @click="show=!show">点击</button>
-        <h2 v-if="show">v-if元素不存在</h2>
-        <h2 v-show="show">v-show隐藏元素</h2>
-        <hr>
-        <ul>
-            <!-- <li v-for="(user,index) in users" v-if="user.gender==='男'">{{index}}--
+      <button @click="show=!show">点击</button>
+      <h2 v-if="show">v-if的效果为元素不存在</h2>
+      <h2 v-show="show">v-show的效果为隐藏元素</h2>
+      <hr />
+      <ul>
+        <!-- <li v-for="(user,index) in users" v-if="user.gender==='男'">{{index}}--
                 {{user.name}}--{{user.age}}--{{user.gender}}</li>
             <li v-else style="background-color:deeppink">{{index}}--
                 {{user.name}}--{{user.age}}--{{user.gender}}</li> -->
-            <li v-for="(user,index) in users">
-                <div v-if="user.gender==='男'">
-                    {{index}}-- {{user.name}}--{{user.age}}--{{user.gender}}
-                </div>
-                <div v-else style="background-color:deeppink"> {{index}}-- {{user.name}}--{{user.age}}--{{user.gender}}
-                </div>
-            </li>
-        </ul>
+        <li v-for="(user,index) in users">
+          <div v-if="user.gender==='男'">
+            {{index}}-- {{user.name}}--{{user.age}}--{{user.gender}}
+          </div>
+          <div v-else style="background-color: deeppink">
+            {{index}}-- {{user.name}}--{{user.age}}--{{user.gender}}
+          </div>
+        </li>
+      </ul>
     </div>
     <script type="text/javascript">
-        var app = new Vue({
-            el: "#app",
-            data: {
-                show: true,
-                users: [{
-                        "name": "bob",
-                        "age": 13,
-                        "gender": "女"
-                    },
-                    {
-                        "name": "haha",
-                        "age": 15,
-                        "gender": "男"
-                    },
-                    {
-                        "name": "wawa",
-                        "age": 12,
-                        "gender": "女"
-                    }
-                ],
-                person: {
-                    "name": "jason",
-                    "age": 55,
-                    "gender": "man",
-                    "address": "中国"
-                }
+      var app = new Vue({
+        el: '#app',
+        data: {
+          show: true,
+          users: [
+            {
+              name: 'bob',
+              age: 13,
+              gender: '女',
             },
-            methods: {
-                decrement() {
-                    this.num--;
-                }
-            }
-        });
+            {
+              name: 'haha',
+              age: 15,
+              gender: '男',
+            },
+            {
+              name: 'wawa',
+              age: 12,
+              gender: '女',
+            },
+          ],
+          person: {
+            name: 'jason',
+            age: 55,
+            gender: 'man',
+            address: '中国',
+          },
+        },
+        methods: {
+          decrement() {
+            this.num--
+          },
+        },
+      })
     </script>
-</body>
-
+  </body>
 </html>
