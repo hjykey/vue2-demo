@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./node_modules/vue/dist/vue.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <input v-model="message" type="text" />
-        <hr><br>
-        姓名：<input v-model="person.name" type="text" />
-        年龄：
-        <input v-model="person.age" type="text" />
+      <input v-model="message" type="text" />
+      <hr />
+      <br />
+      姓名：<input v-model="person.name" type="text" />
+      年龄：
+      <input v-model="person.age" type="text" />
     </div>
     <script type="text/javascript">
-        // watch加载到构造器外部的写法，降低程序耦合度
-        // app.$watch('xxx',function(){})
-        var app = new Vue({
-            el: "#app",
-            data: {
-                message: "黑马",
-                person: {
-                    name: "黑马",
-                    age: 13
-                }
+      // watch加载到构造器外部的写法，降低程序耦合度
+      // app.$watch('xxx',function(){})
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: '黑马',
+          person: {
+            name: '黑马',
+            age: 13,
+          },
+        },
+        watch: {
+          //监控属性变化
+          message(newValue, oldValue) {
+            console.log('新值:' + newValue, '旧值:' + oldValue)
+          },
+          //监控对象使用
+          person: {
+            //开启深度监控；监控对象属性的变化
+            deep: true,
+            handler(obj) {
+              console.log('姓名:' + obj.name, '年龄:' + obj.age)
             },
-            watch: {
-                //监控属性变化
-                message(newValue, oldValue) {
-                    console.log('新值:' + newValue, '旧值:' + oldValue)
-                },
-                //监控对象使用
-                person: {
-                    //开启深度监控；监控对象属性的变化
-                    deep: true,
-                    handler(obj) {
-                        console.log('姓名:' + obj.name, '年龄:' + obj.age)
-                    }
-                }
-            },
-            //钩子函数，vue自带
-            created: {}
-        })
+          },
+          //当即不是数组也不熟对象时，可以相当于新建了一个computed属性并监控
+        },
+        //钩子函数，vue自带
+        created: {},
+      })
     </script>
-</body>
-
+  </body>
 </html>
