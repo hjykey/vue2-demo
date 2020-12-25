@@ -26,15 +26,18 @@
         <span slot="sk" style="background-color: cyan"
           >{{jspangData.skill}}</span
         >
+        <span slot="other" slot-scope="slotProps" style="background-color: cyan"
+          >{{slotProps.prop1.firstname}}</span
+        >
         <!-- 将包含所有插槽 prop 的对象命名为 slotProps，但你也可以使用任意你喜欢的名字。-->
         <!-- 当只有一个不具名插槽时可以写为<jspang v-slot:default="slotProps"> {{slotProps.msg.lastname}}</jspang>,多个插槽时只能在template里写 -->
-        <template v-slot:default="slotProps"
+        <!-- <template v-slot:default="slotProps"
           >{{slotProps.prop1.lastname}}</template
-        >
+        > -->
         <!-- 第二个带属性的具名插槽 -->
-        <template v-slot:other="slotProps"
+        <!-- <template v-slot:other="slotProps"
           >{{slotProps.prop1.firstname}}</template
-        >
+        >      -->
       </jspang>
     </div>
 
@@ -45,8 +48,8 @@
         <p>网名：<slot name="netName"></slot></p>
         <p>技术类型：<slot name="sk"></slot></p>
         <!-- 绑定在 <slot> 元素上的 attribute 被称为插槽 prop -->
-        <p>插槽:<slot :prop1="msg">{{msg.firstname}}</slot></p>
-        <p>具名插槽:<slot name="other" :prop1="msg">{{msg.lastname}}</slot></p>
+        <p>插槽:<slot :prop1="msg"></slot></p>
+        <p>具名插槽:<slot name="other" :prop1="msg" ></slot></p>
       </div>
     </template>
 
