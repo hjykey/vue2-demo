@@ -76,6 +76,9 @@
         components: {
           jspang: jspang,
         },
+        created() {
+            console.log(this.$scopedSlots)
+        },
       })
     </script>
   </body>
