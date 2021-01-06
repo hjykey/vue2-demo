@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">{{cs|jb|ts}}</div>
+   <script type="text/javascript">
+// 全局过滤器
+Vue.filter('ts',function(val){
+    return val+'!!'
+})
+var app = new Vue({
+            el: '#app',
+            data: {
+                cs:'测试'
+            },
+            // components: {
+            //     blog-post:
+            // },
+            created() {
+                console.log(this.$scopedSlots)
+            },
+            filters:{
+                jb:function(val){
+                    return val+'??'
+                }
+            }
+        })
+   </script> 
+</body>
+</html>
