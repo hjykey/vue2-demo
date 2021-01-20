@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/hjykey/vue2-demo#readme",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "vue": "^2.6.12"
   }
 }
