@@ -62,8 +62,9 @@
             },
             methods: {
                async get(){
-                    axios.post('http://localhost:5000/api/users/login',{name:'ma',password:'123'}).then(res=>console.log(res)).catch(reject=>console.log(reject))
-                   
+                    // axios.post('http://localhost:5000/api/users/test',{name:'ma',password:'123'}).then(res=>console.log(res)).catch(reject=>console.log(reject))                    
+                    // axios.get('http://localhost:5000/api/users/test').then(res=>console.log(res)).catch(reject=>console.log(reject))
+                    axios.get('http://localhost:5000/api/profiles/test').then(res=>console.log(res)).catch(reject=>console.log(reject))
                 }
             },
         });
