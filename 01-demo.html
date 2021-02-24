@@ -14,7 +14,7 @@
       <input type="text" v-model="num" /><button @click="num++">自增</button
       ><button @click="decrement">自减</button>
       <hr />
-      <!-- v-cloak加载完成后显示 -->
+      <!-- v-cloak加载完成后显示 {{}}叫做差值表达式-->
       <h2 v-cloak>{{name}},{{num}}</h2>
       <br />
       <h2 v-text="name">{{name}}后面的文字会被覆盖</h2>
