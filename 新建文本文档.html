@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		.color1 {
+			color: #FF0000;
+		}
+
+		.border1 {
+			border: #ff8800 solid 3px;
+			margin: 20px;
+			padding: 20px;
+		}
+
+		.border1.color1 {
+			background-color: #00ff00;
+		}
+
+		.border1 .color1 {
+			background-color: #0000ff;
+		}
+	</style>
+</head>
+
+<body>
+	<div id='div1'>
+		<div id='div2' class='color1 border1'>
+			我是class='color1 border1'，我在这里！！！
+		</div>
+		<div class="border1">
+			<div class="color1">
+				我是 < div class="border1">
+					< div class="color1">，我在这里！！！
+			</div>
+		</div>
+
+		<div class="border1">
+			我是 < div class="border1"> ，我在这里！！！
+		</div>
+
+		<div class="color1">
+			我是 < div class="color1">，我在这里！！！
+		</div>
+	</div>
+</body>
+
+</html>

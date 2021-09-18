@@ -3,7 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="./node_modules/_vue@2.6.12@vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+    <style>
+        .a {
+            color: red
+        }
+
+        .b {
+            background-color: blue
+        }
+    </style>
     <title>Helloworld</title>
 </head>
 
@@ -12,13 +21,26 @@
     <hr>
     <div id="app">
         {{message}}
+        <div v-bind:class="classObject">测试“：class”的用法1</div>
+        <div class="a" :class="{b:true }">测试“：class”的用法2</div>
+        <div :class="[{b:true },{a:false}]">测试“：class”的用法3</div>
+        
     </div>
 
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'hello Vue!'
+                message: 'hello Vue!',
+                isActive: true,
+                error: null
+            },
+            computed: {
+                classObject: function () {
+                    return {
+                        a: this.isActive && !this.error, b: true
+                    }
+                }
             }
         })
     </script>
